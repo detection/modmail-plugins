@@ -102,10 +102,7 @@ class DmOnReactPlugin(commands.Cog):
         await ctx.send("Successfully set the message.")
 
     @commands.Cog.listener()
-    async def on_raw_reaction_add(self, payload):
-        if not payload.guild_id:
-            return
-
+    async def on_raw_reaction_add(self, member):
         config = await self.db.find_one({"_id": "dm-setup"})
 
         if config is None:
@@ -117,42 +114,6 @@ class DmOnReactPlugin(commands.Cog):
             await member.send(message.replace("{user}", str(member)))
         except:
             return
-
-        emote = payload.emoji.name if payload.emoji.id is None else str(payload.emoji.id)
-        emoji = payload.emoji.name if payload.emoji.id is None else payload.emoji
-
-        guild = self.bot.get_guild(payload.guild_id)
-        member = discord.utils.get(guild.members, id=payload.user_id)
-
-        if member.bot:
-            return
-
-        try:
-            msg_id = config[emote]["msg_id"]
-        except (KeyError, TypeError):
-            return
-
-        if payload.message_id != int(msg_id):
-            return
-
-        ignored_roles = config[emote].get("ignored_roles")
-        if ignored_roles:
-            for role_id in ignored_roles:
-                role = discord.utils.get(guild.roles, id=role_id)
-                if role in member.roles:
-                    await self._remove_reaction(payload, emoji, member)
-                    return
-
-        state = config[emote].get("state", "unlocked")
-        if state and state == "locked":
-            await self._remove_reaction(payload, emoji, member)
-            return
-
-        rrole = config[emote]["role"]
-        role = discord.utils.get(guild.roles, id=int(rrole))
-
-        if role:
-            await member.add_roles(role)
 
 
 def setup(bot):
