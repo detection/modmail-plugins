@@ -26,13 +26,13 @@ class DmOnReactPlugin(commands.Cog):
         self.db = bot.plugin_db.get_partition(self)
 
     @commands.group(name="dmonreact", aliases=["dmr"], invoke_without_command=True)
-    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     async def dmonreact(self, ctx: commands.Context):
         """Send a DM to a user on reaction"""
         await ctx.send_help(ctx.command)
 
     @dmonreact.command(name="add", aliases=["make"])
-    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     async def dmr_add(self, ctx, message: str, emoji: Emoji,
                      ignored_roles: commands.Greedy[discord.Role] = None):
         """
@@ -66,9 +66,15 @@ class DmOnReactPlugin(commands.Cog):
 
         await message.add_reaction(emoji)
         await ctx.send("Successfuly set the react message!")
+        
+    @dmonreact.command(name="print", aliases=["prt"])
+        @checks.has_permissions(PermissionLevel.MODERATOR)
+        aysnc def dmr_print(self, ctx, *, message):
+            """Print react message stored in memory"""
+            await ctx.send(message.content)
 
     @dmonreact.command(name="remove", aliases=["delete"])
-    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     async def dmr_remove(self, ctx, emoji: Emoji):
         """Delete something from the react DMs."""
         emote = emoji.name if emoji.id is None else str(emoji.id)
