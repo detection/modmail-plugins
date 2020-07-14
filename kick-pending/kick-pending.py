@@ -20,9 +20,8 @@ class KickPending(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)
 
-    @commands.group(invoke_without_command=True)
-    @commands.guild_only()
-    @checks.has_permissions(PermissionLevel.ADMIN)
+    @commands.group(name="moderation", aliases=["mod"], invoke_without_command=True)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     async def moderation(self, ctx: commands.Context):
         """
         Settings and stuff
@@ -30,7 +29,7 @@ class KickPending(commands.Cog):
         await ctx.send_help(ctx.command)
         return
 
-    @commands.command(aliases=["getout"])
+    @commands.command(name="kick", aliases=["getout"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def kick(self, ctx):
       role = ctx.guild.get_role(732405243299495968)
@@ -38,7 +37,7 @@ class KickPending(commands.Cog):
           await x.kick(reason="Inactivity")
       await ctx.send("Kicked all members with role Negotiating")
         
-        config = await self.db.find_one({"_id": "config"})
+      config = await self.db.find_one({"_id": "config"})
 
         if config is None:
             return await ctx.send("There's no configured log channel.")
