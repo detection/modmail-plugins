@@ -66,12 +66,6 @@ class DmOnReactPlugin(commands.Cog):
 
         await message.add_reaction(emoji)
         await ctx.send("Successfuly set the react message!")
-        
-    @dmonreact.command(name="print", aliases=["prt"])
-        @checks.has_permissions(PermissionLevel.MODERATOR)
-        aysnc def dmr_print(self, ctx, *, message):
-            """Print react message stored in memory"""
-            await ctx.send(message.content)
 
     @dmonreact.command(name="remove", aliases=["delete"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
