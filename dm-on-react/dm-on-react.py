@@ -106,7 +106,7 @@ class DmOnReactPlugin(commands.Cog):
         if not payload.guild_id:
             return
         
-        config = await self.db.find_one({"_id": "dm-setup"})
+        config = await self.db.find_one({"_id": "config"})
 
         emote = payload.emoji.name if payload.emoji.id is None else str(payload.emoji.id)
         emoji = payload.emoji.name if payload.emoji.id is None else payload.emoji
