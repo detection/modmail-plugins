@@ -7,7 +7,7 @@ class NewMemberRoles(commands.Cog):
     @commands.command(name="approve", aliases=["app"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def approve(self, ctx):
-        member = """USER ID FROM MODMAIL CHANNEL"""
+        member = ctx.thread.recipient.id
         pend = discord.utils.get(ctx.server.roles, name="Pending")
         nego = discord.utils.get(ctx.server.roles, name="Negotiating")
         madrid = discord.utils.get(ctx.server.roles, name="Madridistas!")
