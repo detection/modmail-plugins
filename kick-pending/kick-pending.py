@@ -67,13 +67,13 @@ class KickPending(commands.Cog):
                     await ctx.send(f"🦶 | {member} is kicked!")
                     await channel.send(embed=embed)
 
-                    except discord.Forbidden:
-                        await ctx.send("I don't have the proper permissions to kick people.")
+                except discord.Forbidden:
+                    await ctx.send("I don't have the proper permissions to kick people.")
 
-                    except Exception as e:
-                        await ctx.send("An unexpected error occurred, please check the Heroku logs for more details.")
-                        logger.error(e)
-                        return
+                except Exception as e:
+                    await ctx.send("An unexpected error occurred, please check the Heroku logs for more details.")
+                    logger.error(e)
+                    return
             
 def setup(bot):
     bot.add_cog(KickPending(bot))
