@@ -105,6 +105,8 @@ class DmOnReactPlugin(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         if not payload.guild_id:
             return
+        
+        config = await self.db.find_one({"_id": "dm-setup"})
 
         emote = payload.emoji.name if payload.emoji.id is None else str(payload.emoji.id)
         emoji = payload.emoji.name if payload.emoji.id is None else payload.emoji
@@ -122,8 +124,6 @@ class DmOnReactPlugin(commands.Cog):
 
         if payload.message_id != int(msg_id):
             return
-
-        config = await self.db.find_one({"_id": "dm-setup"})
 
         if config is None:
             logger.info("User reacted, but no DM message was set.")
