@@ -82,7 +82,7 @@ class DmOnReactPlugin(commands.Cog):
         await ctx.send("Successfully removed the role from the reaction role.")
 
     @dmonreact.command(aliases=["sdm"])
-    @checks.has_permissions(PermissionLevel.ADMIN)
+    @checks.has_permissions(PermissionLevel.MODERATOR)
     async def setdmmsg(self, ctx, *, message):
         """Set a message to DM a user when they react"""
         if message.startswith("https://") or message.startswith("http://"):
@@ -100,6 +100,12 @@ class DmOnReactPlugin(commands.Cog):
         )
 
         await ctx.send("Successfully set the message.")
+       
+    @dmonreact.command(name="print", aliases=["prt"])
+    @checks.has_permissions(PermissionLevel.MODERATOR)
+    async def dmr_print(self, ctx, *, message):
+    """Print react message stored in memory"""
+        await ctx.send(message.content)
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
