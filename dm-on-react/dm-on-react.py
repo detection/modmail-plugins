@@ -94,7 +94,7 @@ class DmOnReactPlugin(commands.Cog):
                 message = await resp.text()
 
         await self.db.find_one_and_update(
-            {"_id": "dm-setup"},
+            {"_id": "config"},
             {"$set": {"dm-msg": {"message": message}}},
             upsert=True,
         )
