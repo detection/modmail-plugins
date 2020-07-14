@@ -66,6 +66,6 @@ class KickPending(commands.Cog):
 
                     await ctx.send(f"🦶 | {member} is kicked!")
                     await channel.send(embed=embed)
-            
+
 def setup(bot):
     bot.add_cog(KickPending(bot))
