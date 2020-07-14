@@ -33,7 +33,7 @@ class DmOnReactPlugin(commands.Cog):
 
     @dmonreact.command(name="add", aliases=["make"])
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
-    async def dmr_add(self, ctx, message: str, role: discord.Role, emoji: Emoji,
+    async def dmr_add(self, ctx, message: str, emoji: Emoji,
                      ignored_roles: commands.Greedy[discord.Role] = None):
         """
         Sets up the message users will react to.
@@ -61,7 +61,7 @@ class DmOnReactPlugin(commands.Cog):
             blacklist = []
 
         await self.db.find_one_and_update(
-            {"_id": "config"}, {"$set": {emote: {"role": role.id, "msg_id": message.id, "ignored_roles": blacklist, "state": "unlocked"}}},
+            {"_id": "config"}, {"$set": {emote: {"msg_id": message.id, "ignored_roles": blacklist, "state": "unlocked"}}},
             upsert=True)
 
         await message.add_reaction(emoji)
@@ -102,7 +102,27 @@ class DmOnReactPlugin(commands.Cog):
         await ctx.send("Successfully set the message.")
 
     @commands.Cog.listener()
-    async def on_raw_reaction_add(self, member):
+    async def on_raw_reaction_add(self, payload):
+        if not payload.guild_id:
+            return
+
+        emote = payload.emoji.name if payload.emoji.id is None else str(payload.emoji.id)
+        emoji = payload.emoji.name if payload.emoji.id is None else payload.emoji
+
+        guild = self.bot.get_guild(payload.guild_id)
+        member = discord.utils.get(guild.members, id=payload.user_id)
+
+        if member.bot:
+            return
+
+        try:
+            msg_id = config[emote]["msg_id"]
+        except (KeyError, TypeError):
+            return
+
+        if payload.message_id != int(msg_id):
+            return
+
         config = await self.db.find_one({"_id": "dm-setup"})
 
         if config is None:
