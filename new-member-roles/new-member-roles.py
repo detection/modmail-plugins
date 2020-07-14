@@ -13,9 +13,9 @@ class NewMemberRoles(commands.Cog):
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def approve(self, ctx):
         member = ctx.thread.recipient.id
-        pend = discord.utils.get(ctx.server.roles, name="Pending")
-        nego = discord.utils.get(ctx.server.roles, name="Negotiating")
-        madrid = discord.utils.get(ctx.server.roles, name="Madridistas!")
+        pend = ctx.guild.get_role(324658636574162945)
+        nego = ctx.guild.get_role(732405243299495968)
+        madrid = ctx.guild.get_role(305440616354152450)
         await client.add_roles(member, nego, madrid)
         await client.remove_roles(member, pend)
         
