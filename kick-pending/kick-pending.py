@@ -39,38 +39,38 @@ class KickPending(commands.Cog):
         
       config = await self.db.find_one({"_id": "config"})
 
-        if config is None:
-            return await ctx.send("There's no configured log channel.")
-        else:
-            channel = ctx.guild.get_channel(int(config["channel"]))
+      if config is None:
+          return await ctx.send("There's no configured log channel.")
+      else:
+          channel = ctx.guild.get_channel(int(config["channel"]))
 
-        if channel is None:
-            await ctx.send("There is no configured log channel.")
-            return
+      if channel is None:
+          await ctx.send("There is no configured log channel.")
+          return
 
-        try:
-            for member in members:
-                await member.kick(reason=f"{reason if reason else None}")
-                embed = discord.Embed(
-                    color=discord.Color.red(),
-                    title=f"{member} was kicked!",
-                    timestamp=datetime.datetime.utcnow(),
-                )
+      try:
+          for member in members:
+              await member.kick(reason=f"{reason if reason else None}")
+              embed = discord.Embed(
+                  color=discord.Color.red(),
+                  title=f"{member} was kicked!",
+                  timestamp=datetime.datetime.utcnow(),
+              )
 
-                embed.add_field(
-                    name="Moderator", value=f"{ctx.author}", inline=False,
-                )
+              embed.add_field(
+                  name="Moderator", value=f"{ctx.author}", inline=False,
+              )
 
-                if reason is not None:
-                    embed.add_field(name="Reason", value=reason, inline=False)
+              if reason is not None:
+                  embed.add_field(name="Reason", value=reason, inline=False)
 
-                await ctx.send(f"🦶 | {member} is kicked!")
-                await channel.send(embed=embed)
+              await ctx.send(f"🦶 | {member} is kicked!")
+              await channel.send(embed=embed)
 
-        except discord.Forbidden:
+       except discord.Forbidden:
             await ctx.send("I don't have the proper permissions to kick people.")
 
-        except Exception as e:
+       except Exception as e:
             await ctx.send(
                 "An unexpected error occurred, please check the Heroku logs for more details."
             )
