@@ -24,4 +24,4 @@ class NewMemberRoles(commands.Cog):
         await ctx.send("{member} has been successfully approved!")
 
 def setup(bot):
-    bot.add_cog(NewMemberRolesPlugin(bot))
+    bot.add_cog(NewMemberRoles(bot))
