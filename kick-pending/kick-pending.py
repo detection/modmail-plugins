@@ -33,10 +33,10 @@ class KickPending(commands.Cog):
     @commands.command(aliases=["getout"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def kick(self, ctx):
-      role = ctx.guild.get_role(324658636574162945)
+      role = ctx.guild.get_role(732405243299495968)
       for x in role.members:
           await x.kick(reason="Inactivity")
-      await ctx.send("Kicked all members with role Pending")
+      await ctx.send("Kicked all members with role Negotiating")
         
         config = await self.db.find_one({"_id": "config"})
 
