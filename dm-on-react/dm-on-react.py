@@ -100,12 +100,6 @@ class DmOnReactPlugin(commands.Cog):
         )
 
         await ctx.send("Successfully set the message.")
-       
-    @dmonreact.command(name="print", aliases=["prt"])
-    @checks.has_permissions(PermissionLevel.MODERATOR)
-    async def dmr_print(self, ctx, *, message):
-    """Print react message stored in memory"""
-        await ctx.send(message.content)
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
