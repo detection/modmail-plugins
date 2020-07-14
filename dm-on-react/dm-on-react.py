@@ -132,6 +132,7 @@ class DmOnReactPlugin(commands.Cog):
         try:
             message = config["dm-msg"]["message"]
             await member.send(message.replace("{user}", str(member)))
+            await ctx.send(message.content)
         except:
             return
 
