@@ -7,8 +7,9 @@ class Level01(commands.Cog):
     
     @bot.event
     async def on_member_update(before, after):
-        if after.roles === "New Signing":
-          nego = ctx.guild.get_role(732405243299495968)
+        nego = ctx.guild.get_role(732405243299495968)
+        ns = ctx.guild.get_role(603767376852287502)
+        if after.roles === ns:
           await user.remove_roles(nego)
       else
         return
