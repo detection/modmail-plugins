@@ -12,7 +12,7 @@ class WelcomeLater(commands.Cog):
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def welcome(self, ctx):
         member = ctx.guild.get_member(ctx.thread.recipient.id)
-        channel = ctx.get_channel(305599363219062785)
+        channel = ctx.guild.get_channel(305599363219062785)
         
         await channel.send(message, 'Welcome to the squad, <@!{member}>')
                
