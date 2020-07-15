@@ -10,7 +10,7 @@ class WelcomeLater(commands.Cog):
         
     @commands.command(name="welcome", aliases=["w"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
-    async def welcome(self, ctx):
+    async def welcome(self, ctx, message):
         member = ctx.guild.get_member(ctx.thread.recipient.id)
         channel = ctx.guild.get_channel(305599363219062785)
         
