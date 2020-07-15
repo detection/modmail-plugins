@@ -1,0 +1,17 @@
+import discord
+from discord.ext import commands
+
+class Level01(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+    
+    @bot.event
+    async def on_member_update(before, after):
+        if after.role === "New Signing":
+          nego = ctx.guild.get_role(732405243299495968)
+          await user.remove_roles(nego)
+      else
+        return
+               
+def setup(bot):
+    bot.add_cog(Level01(bot))
