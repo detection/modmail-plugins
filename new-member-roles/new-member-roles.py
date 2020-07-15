@@ -18,10 +18,9 @@ class NewMemberRoles(commands.Cog):
         madrid = ctx.guild.get_role(305440616354152450)
         await member.add_roles(nego, madrid)
         await member.remove_roles(pend)
+        await ctx.send("{member} has been successfully approved!")
         
         config = await self.db.find_one({"_id": "config"})
-
-        await ctx.send("{member} has been successfully approved!")
 
 def setup(bot):
     bot.add_cog(NewMemberRoles(bot))
