@@ -14,7 +14,7 @@ class WelcomeLater(commands.Cog):
         member = ctx.guild.get_member(ctx.thread.recipient.id)
         channel = ctx.get_channel(305599363219062785)
         
-        await channel.send('Welcome to the squad, ' + <@!member> + "!")
+        await channel.send('Welcome to the squad, ' + <@! {member}> + '!')
                
 def setup(bot):
     bot.add_cog(WelcomeLater(bot))
