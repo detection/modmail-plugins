@@ -5,7 +5,7 @@ class Level01(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @bot.event
+    @commands.Cog.listener()
     async def on_member_update(before, after):
         nego = ctx.guild.get_role(732405243299495968)
         ns = ctx.guild.get_role(603767376852287502)
