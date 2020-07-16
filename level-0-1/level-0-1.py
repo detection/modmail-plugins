@@ -11,7 +11,7 @@ class Level01(commands.Cog):
         ns = ctx.guild.get_role(603767376852287502)
         if after.roles == ns:
             await user.remove_roles(nego)
-        else
+        else:
             return
                
 def setup(bot):
