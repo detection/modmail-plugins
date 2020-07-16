@@ -6,11 +6,11 @@ class Level01(commands.Cog):
         self.bot = bot
     
     @commands.Cog.listener()
-    async def on_member_update(ctx: commands.Context, before, after):
-        nego = ctx.guild.get_role(732405243299495968)
-        ns = ctx.guild.get_role(603767376852287502)
-        if ctx.after.roles == ns:
-            await ctx.user.remove_roles(nego)
+    async def on_member_update(self, before, after):
+        nego = client.guild.get_role(732405243299495968)
+        ns = client.guild.get_role(603767376852287502)
+        if after.roles == ns:
+            await user.remove_roles(nego)
         else:
             return
                
