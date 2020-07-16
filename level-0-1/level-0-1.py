@@ -6,9 +6,9 @@ class Level01(commands.Cog):
         self.bot = bot
     
     @commands.Cog.listener()
-    async def on_member_update(self, before, after):
-        nego = guild.get_role(732405243299495968)
-        ns = guild.get_role(603767376852287502)
+    async def on_member_update(ctx, before, after):
+        nego = ctx.guild.get_role(732405243299495968)
+        ns = ctx.guild.get_role(603767376852287502)
         if ns not in before.roles and ns in after.roles:
             await user.remove_roles(nego)
         else:
