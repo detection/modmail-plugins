@@ -29,9 +29,9 @@ class KickPending(commands.Cog):
         await ctx.send_help(ctx.command)
         return
 
-    @commands.command(name="kickPend", aliases=["getoutP"])
+    @commands.command(name="kick", aliases=["getout"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
-    async def kickPend(self, ctx):
+    async def kick(self, ctx):
         role = ctx.guild.get_role(324658636574162945)
         for x in role.members:
             await x.kick(reason="Inactivity")
