@@ -24,9 +24,7 @@ class RoleManage(commands.Cog):
         indigo = guild.get_role(753418176053903431)
         if ns not in before.roles and ns in after.roles:
             await user.remove_roles(nego)
-        else:
-            return
-        if red not in before.roles and red in after.roles:
+        elif red not in before.roles and red in after.roles:
             await user.remove_roles(orange, yellow, green, lime, seafoam, aqua, blue, lav, violet, indigo)
         else:
             return           
