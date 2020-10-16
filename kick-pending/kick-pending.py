@@ -1,10 +1,4 @@
-import datetime
-import logging
-
-logger = logging.getLogger("Modmail")
-
 import discord
-import typing
 from discord.ext import commands
 
 from core import checks
@@ -20,16 +14,7 @@ class KickPending(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)
 
-    @commands.group(name="moderation", aliases=["mod"], invoke_without_command=True)
-    @checks.has_permissions(PermissionLevel.MODERATOR)
-    async def moderation(self, ctx: commands.Context):
-        """
-        Settings and stuff
-        """
-        await ctx.send_help(ctx.command)
-        return
-
-    @commands.command(name="kick", aliases=["getout"])
+    @commands.command(name="thepurge", aliases=["kickpend"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def kick(self, ctx):
         role = ctx.guild.get_role(324658636574162945)
