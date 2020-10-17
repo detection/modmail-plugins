@@ -14,9 +14,33 @@ class KickPending(commands.Cog):
         self.bot = bot
         self.db = bot.plugin_db.get_partition(self)
 
-    @commands.command(name="thepurge", aliases=["kickpend"])
+    @commands.group(invoke_without_command=True)
+    @commands.guild_only()
+    @checks.has_permissions(PermissionLevel.ADMIN)
+    async def kickpend(self, ctx: commands.Context):
+        """
+        Settings and stuff
+        """
+        await ctx.send_help(ctx.command)
+        return
+
+    @moderation.command()
+    @checks.has_permissions(PermissionLevel.ADMIN)
+    async def channel(self, ctx: commands.Context, channel: discord.TextChannel):
+        """
+        Set the log channel for moderation actions.
+        """
+
+        await self.db.find_one_and_update(
+            {"_id": "config"}, {"$set": {"channel": channel.id}}, upsert=True
+        )
+
+        await ctx.send("Done!")
+        return
+
+    @commands.command(name="purgepend", aliases=["pp"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
-    async def kick(self, ctx):
+    async def purgepend(self, ctx):
         role = ctx.guild.get_role(324658636574162945)
         for x in role.members:
             await x.kick(reason="Inactivity")
