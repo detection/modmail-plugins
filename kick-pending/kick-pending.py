@@ -24,7 +24,7 @@ class KickPending(commands.Cog):
         await ctx.send_help(ctx.command)
         return
 
-    @moderation.command()
+    @kickpend.command()
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def channel(self, ctx: commands.Context, channel: discord.TextChannel):
         """
