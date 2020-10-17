@@ -44,7 +44,7 @@ class KickPending(commands.Cog):
         role = ctx.guild.get_role(324658636574162945)
         for x in role.members:
             await x.kick(reason="Inactivity")
-            await ctx.send("Kicked all members with role Pending")
+            """await ctx.send("Kicked all members with role Pending")"""
         
         config = await self.db.find_one({"_id": "config"})
 
