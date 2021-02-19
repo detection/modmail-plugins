@@ -34,7 +34,7 @@ class NewPing(commands.Cog):
 
     @commands.command()
     async def say(self, ctx, *, message):
-        await ctx.send(message)
+        await ctx.send(str(member.mention))
 
 def setup(bot):
     bot.add_cog(NewPing(bot))
