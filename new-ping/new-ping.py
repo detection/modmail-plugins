@@ -1,6 +1,5 @@
 from discord.ext import commands
 import discord
-import asyncio
 
 class NewPing(commands.Cog):
     def __init__(self, bot):
@@ -13,15 +12,11 @@ class NewPing(commands.Cog):
         member = ctx.guild.get_member(ctx.thread.recipient.id)
 
         if channel.category.id == category_id:
-            await asyncio.sleep(5)
-            messages = await channel.history().flatten()
+            await ctx.send(str(member.mention))
 
         else:
             print('Wrong category')
             print(channel.category.name)
-
-    async def say(self, ctx, *, message):
-        await ctx.send(str(member.mention))
 
 def setup(bot):
     bot.add_cog(NewPing(bot))
