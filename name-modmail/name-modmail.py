@@ -11,7 +11,7 @@ class NameModmail(commands.Cog):
     @commands.command(name="newname", aliases=["newn"])
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def rename(ctx, name):
-    await ctx.user.edit(username=Papa Flo)
+    await bot.user.edit(username=Papa Flo)
                
 def setup(bot):
     bot.add_cog(NameModmail(bot))
