@@ -13,7 +13,7 @@ class CasinoInvite(commands.Cog):
         if juvC not in before.roles and juvC in after.roles and socios not in after.roles:
             print(f"{member.name} test dm message send")
             await member.send('test dm message')
-        else
+        else:
             return
                
 def setup(bot):
