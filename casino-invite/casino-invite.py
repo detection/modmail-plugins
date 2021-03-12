@@ -30,11 +30,11 @@ class CasinoInvite(commands.Cog):
     
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
-    	config = await self.db.find_one({"_id": "ci-dm-config"})
         guild = self.bot.get_guild(173554823633829888)
         user = guild.get_member(after.id)
         juvC = guild.get_role(603767565130399784)
         socios = guild.get_role(541375823395946522)
+        config = await self.db.find_one({"_id": "ci-dm-config"})
         if juvC not in before.roles and juvC in after.roles and socios not in after.roles:
             message = config["ci-dm-message"]["ci-message"]
             await member.send(message.replace("{user}", str(member))) 
