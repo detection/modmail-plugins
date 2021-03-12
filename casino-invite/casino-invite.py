@@ -3,7 +3,7 @@ from discord.ext import commands
 
 class CasinoInvite(commands.Cog):
     def __init__(self, bot):
-    self.bot = bot
+        self.bot = bot
     
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
