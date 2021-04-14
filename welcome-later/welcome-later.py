@@ -15,6 +15,14 @@ class WelcomeLater(commands.Cog):
         channel = ctx.guild.get_channel(733193999942287441)
         
         await channel.send('Welcome to the squad, ' + str(member.mention) + '!')
+        
+    @commands.command(name="welcomePromotion", aliases=["wp"])
+    @checks.has_permissions(PermissionLevel.MODERATOR)
+    async def welcomePromotion(self, ctx):
+        member = ctx.guild.get_member(ctx.thread.recipient.id)
+        channel = ctx.guild.get_channel(733193999942287441)
+        
+        await channel.send('Congratulations on your promotion, ' + str(member.mention) + '!')
                
 def setup(bot):
     bot.add_cog(WelcomeLater(bot))
