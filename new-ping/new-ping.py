@@ -10,10 +10,10 @@ class NewPing(commands.Cog):
     async def on_guild_channel_create(self, ctx):
         category_id = 649463797949399050
         member = ctx.guild.get_member(ctx.thread.recipient.id)
-        channel = ctx.guild.get_channel(ctx.thread.channel.id)
+        thread = ctx.guild.get_channel(ctx.thread.channel.id)
 
         if channel.category.id == category_id:
-            await channel.send(str(member.mention))
+            await thread.send(str(member.mention))
 
         else:
             print('Wrong category')
