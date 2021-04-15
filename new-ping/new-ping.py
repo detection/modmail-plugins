@@ -1,5 +1,6 @@
 from discord.ext import commands
 import discord
+import asyncio
 
 class NewPing(commands.Cog):
     def __init__(self, bot):
@@ -7,17 +8,34 @@ class NewPing(commands.Cog):
         print('v2.0.0')
 
     @commands.Cog.listener()
-    async def on_guild_channel_create(ctx, channel):
+    async def on_guild_channel_create(self, channel):
         category_id = 649463797949399050
-        member = ctx.guild.get_member(ctx.thread.recipient.id)
-        newthread = ctx.guild.get_channel(ctx.thread.channel.id)
 
         if channel.category.id == category_id:
-            await newthread.send(str(member.mention))
+            await asyncio.sleep(5)
+            messages = await channel.history().flatten()
+            first_msg = messages[0]
+            print('First message: ', first_msg)
+            newChannel = self.bot.get_channel(channel.id)
+            userID = newChannel.topic.split(': ')[1]
+            print('userID:', userID)
 
+            ctx = await self.bot.get_context(first_msg)
+
+            member = self.bot.get_user(int(userID))
+            print("Member: ", member)
+            
+            thr = await self.bot.threads.find_or_create(member)
+            ctx.thread = thr
+
+            await newChannel.send(str(member.mention))
         else:
             print('Wrong category')
             print(channel.category.name)
+
+    @commands.command()
+    async def say(self, ctx, *, message):
+        await ctx.send(message)
 
 def setup(bot):
     bot.add_cog(NewPing(bot))
