@@ -12,15 +12,11 @@ class NewPing(commands.Cog):
         category_id = 649463797949399050
 
         if channel.category.id == category_id:
-            await asyncio.sleep(3)
+            await asyncio.sleep(1)
             messages = await channel.history().flatten()
-            first_msg = messages[0]
-            print('First message: ', first_msg)
             newChannel = self.bot.get_channel(channel.id)
             userID = newChannel.topic.split(': ')[1]
             print('userID:', userID)
-
-            ctx = await self.bot.get_context(first_msg)
 
             member = self.bot.get_user(int(userID))
             print("Member: ", member)
