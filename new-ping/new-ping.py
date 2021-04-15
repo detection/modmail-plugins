@@ -12,7 +12,7 @@ class NewPing(commands.Cog):
         category_id = 649463797949399050
 
         if channel.category.id == category_id:
-            await asyncio.sleep(5)
+            await asyncio.sleep(3)
             messages = await channel.history().flatten()
             first_msg = messages[0]
             print('First message: ', first_msg)
@@ -24,18 +24,11 @@ class NewPing(commands.Cog):
 
             member = self.bot.get_user(int(userID))
             print("Member: ", member)
-            
-            thr = await self.bot.threads.find_or_create(member)
-            ctx.thread = thr
 
             await newChannel.send(str(member.mention))
         else:
             print('Wrong category')
             print(channel.category.name)
-
-    @commands.command()
-    async def say(self, ctx, *, message):
-        await ctx.send(message)
 
 def setup(bot):
     bot.add_cog(NewPing(bot))
