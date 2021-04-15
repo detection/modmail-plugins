@@ -7,7 +7,7 @@ class NewPing(commands.Cog):
         print('v2.0.0')
 
     @commands.Cog.listener()
-    async def on_guild_channel_create(self, channel):
+    async def on_guild_channel_create(ctx, channel):
         category_id = 649463797949399050
         member = ctx.guild.get_member(ctx.thread.recipient.id)
         newthread = ctx.guild.get_channel(ctx.thread.channel.id)
