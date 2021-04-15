@@ -9,9 +9,10 @@ class NewPing(commands.Cog):
 
     @commands.Cog.listener()
     async def on_guild_channel_create(self, channel):
-        category_id = 649463797949399050
+        rma_id = 649463797949399050
+        rmj_id = 719324997461606455
 
-        if channel.category.id == category_id:
+        if channel.category.id == rma_id or rmj_id:
             await asyncio.sleep(1)
             messages = await channel.history().flatten()
             newChannel = self.bot.get_channel(channel.id)
