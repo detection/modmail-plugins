@@ -19,10 +19,12 @@ class RedditCheck(commands.Cog):
         dash_first = ['-']
 
         if pending in member.roles:
-            if any(i in first_line for i in skip_words) == True:
+            if any(i in first_line for i in skip_words):
                 skip_all = True
+                print(skip_all)
             else:
                 skip_all = False
+                print(skip_all)
 
             if skip_all == False:
                 if "," in first_line[0:20]:
@@ -37,6 +39,9 @@ class RedditCheck(commands.Cog):
                         first_line = first_line.replace(i, '', 1)
 
             await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
+            
+            else:
+                pass
         
         else:
             pass
