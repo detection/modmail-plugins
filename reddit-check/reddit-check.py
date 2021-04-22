@@ -11,8 +11,8 @@ class RedditCheck(commands.Cog):
     async def on_thread_ready(self, thread, creator, category, initial_message):
 
         thread_channel = self.bot.get_channel(thread.channel.id)
-        member = self.guild.get_member(thread.recipient.id)
-        pending = self.guild.get_role(324658636574162945)
+        member = self.bot.guild.get_member(thread.recipient.id)
+        pending = self.bot.guild.get_role(324658636574162945)
         first_message = initial_message.content
         first_line = first_message.splitlines()[0]
         skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous']
