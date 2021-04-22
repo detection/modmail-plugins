@@ -31,7 +31,7 @@ class RedditCheck(commands.Cog):
                     if first_line[0] == "-":
                         first_line = first_line.replace(i, '', 1)
 
-            await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
+                await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
             
         else:
             pass
