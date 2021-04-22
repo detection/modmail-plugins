@@ -9,7 +9,6 @@ class RedditCheck(commands.Cog):
     @commands.Cog.listener()
     async def on_thread_ready(self, thread, creator, category, initial_message):
 
-        thread_channel = self.bot.get_channel(thread.channel.id)
         member = self.bot.guild.get_member(thread.recipient.id)
         pending = self.bot.guild.get_role(324658636574162945)
         first_line = initial_message.content.splitlines()[0]
@@ -19,7 +18,6 @@ class RedditCheck(commands.Cog):
 
         if pending in member.roles:
             if any(i in first_line for i in skip_words) == False:
-                print(skip_all)
                 if "," in first_line[0:20]:
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
@@ -31,8 +29,7 @@ class RedditCheck(commands.Cog):
                     if first_line[0] == "-":
                         first_line = first_line.replace(i, '', 1)
 
-                await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
-            
+                await thread.channel.send('https://redditmetis.com/user/' + str(first_line))
         else:
             pass
             
