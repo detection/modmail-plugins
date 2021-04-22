@@ -10,7 +10,7 @@ class RedditCheck(commands.Cog):
     @commands.Cog.listener()
     async def on_thread_ready(self, thread, creator, category, initial_message):
 
-        print(initial_message.id)
+        print(initial_message.content)
         new_channel = self.bot.get_channel(thread.channel.id)
         print(new_channel.id)
         first_message = initial_message
