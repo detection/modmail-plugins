@@ -12,21 +12,14 @@ class RedditCheck(commands.Cog):
         thread_channel = self.bot.get_channel(thread.channel.id)
         member = self.bot.guild.get_member(thread.recipient.id)
         pending = self.bot.guild.get_role(324658636574162945)
-        first_message = initial_message.content
-        first_line = first_message.splitlines()[0]
+        first_line = initial_message.content.splitlines()[0]
         skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous']
         bad_chars = [' ', 'u/', "/u/", "1.", "1)", "#1"]
         dash_first = ['-']
 
         if pending in member.roles:
-            if any(i in first_line for i in skip_words):
-                skip_all = True
+            if any(i in first_line for i in skip_words) == False:
                 print(skip_all)
-            else:
-                skip_all = False
-                print(skip_all)
-
-            if skip_all == False:
                 if "," in first_line[0:20]:
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
@@ -39,6 +32,10 @@ class RedditCheck(commands.Cog):
                         first_line = first_line.replace(i, '', 1)
 
             await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
+            
+            else:
+                pass
+                print(skip_all)
             
         else:
             pass
