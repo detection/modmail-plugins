@@ -10,10 +10,8 @@ class RedditCheck(commands.Cog):
     @commands.Cog.listener()
     async def on_thread_ready(self, thread, creator, category, initial_message):
 
-        print(initial_message.content)
         new_channel = self.bot.get_channel(thread.channel.id)
-        print(new_channel.id)
-        first_message = initial_message
+        first_message = initial_message.content
         print(first_message)
         first_line = first_message.splitlines()[0]
         skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous']
