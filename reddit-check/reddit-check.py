@@ -12,7 +12,7 @@ class RedditCheck(commands.Cog):
         member = self.bot.guild.get_member(thread.recipient.id)
         pending = self.bot.guild.get_role(324658636574162945)
         first_line = initial_message.content.splitlines()[0]
-        skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous']
+        skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous', 'no have']
         bad_chars = [' ', 'u/', "/u/", "1.", "1)", "#1"]
         dash_first = ['-']
 
