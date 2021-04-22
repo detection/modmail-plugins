@@ -18,9 +18,13 @@ class RedditCheck(commands.Cog):
 
         if pending in member.roles:
             if any(i in first_line for i in skip_words) == False:
-                if "," in first_line[0:20]:
+                if "," in first_line[0:30]:
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
+                    
+                if "." in first_line[0:30]:
+                    before_period = first_line.partition('.')
+                    first_line = before_period[0]
 
                 for i in bad_chars:
                     first_line = first_line.replace(i, '')
