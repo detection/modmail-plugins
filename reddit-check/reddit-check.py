@@ -40,9 +40,6 @@ class RedditCheck(commands.Cog):
 
             await thread_channel.send('https://redditmetis.com/user/' + str(first_line))
             
-            else:
-                pass
-        
         else:
             pass
             
