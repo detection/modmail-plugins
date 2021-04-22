@@ -7,10 +7,8 @@ class NewPing(commands.Cog):
 
     @commands.Cog.listener()
     async def on_thread_ready(self, thread, creator, category, initial_message):
-        thread_channel = self.bot.get_channel(thread.channel.id)
-        member = self.bot.guild.get_member(thread.recipient.id)
             
-        await thread_channel.send(str(member.mention))
+        await thread.channel.send(str(thread.recipient.mention))
 
 def setup(bot):
     bot.add_cog(NewPing(bot))
