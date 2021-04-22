@@ -1,6 +1,5 @@
 from discord.ext import commands
 import discord
-import asyncio
 
 class RedditCheck(commands.Cog):
     def __init__(self, bot):
@@ -20,7 +19,7 @@ class RedditCheck(commands.Cog):
         dash_first = ['-']
 
         if pending in member.roles:
-            if any(i in first_line for i in skip_words):
+            if any(i in first_line for i in skip_words) == True:
                 skip_all = True
             else:
                 skip_all = False
