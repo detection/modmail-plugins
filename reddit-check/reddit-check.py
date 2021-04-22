@@ -12,7 +12,7 @@ class RedditCheck(commands.Cog):
 
         await asyncio.sleep(1)
         print(initial_message)
-        new_channel = self.bot.get_channel(channel.id)
+        new_channel = self.bot.get_channel(thread.channel.id)
         first_message = initial_message
         first_line = first_message.partition('\n')[0]
         skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous']
