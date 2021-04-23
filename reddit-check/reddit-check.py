@@ -13,7 +13,7 @@ class RedditCheck(commands.Cog):
         pending = self.bot.guild.get_role(324658636574162945)
         first_line = initial_message.content.splitlines()[0]
         skip_words = ['dont have', 'don\'t', 'dont use', 'no reddit', 'anonymous', 'no have']
-        bad_chars = [' ', 'u/', '/u\/', '1.', '1)', '#1']
+        bad_chars = [' ', '/u/', 'u/', '1.', '1)', '#1']
         dash_first = ['-']
 
         if pending in member.roles:
@@ -30,7 +30,7 @@ class RedditCheck(commands.Cog):
                     first_line = first_line.replace(i, '')
 
                 for i in dash_first:
-                    if first_line[0] == "-":
+                    if first_line[0] == '-':
                         first_line = first_line.replace(i, '', 1)
 
                 await thread.channel.send('https://redditmetis.com/user/' + str(first_line))
