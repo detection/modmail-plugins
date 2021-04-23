@@ -22,7 +22,7 @@ class RedditCheck(commands.Cog):
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
                     
-                if "." in first_line[0:30]:
+                if "." in first_line[3:30]:
                     before_period = first_line.partition('.')
                     first_line = before_period[0]
 
