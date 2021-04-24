@@ -12,8 +12,8 @@ class RedditCheck(commands.Cog):
         member = self.bot.guild.get_member(thread.recipient.id)
         pending = self.bot.guild.get_role(324658636574162945)
         first_line = initial_message.content.splitlines()[0]
-        skip_words = ['don\'t have', 'dont have', 'don\'t use', 'dont use', 'no reddit', 'anonymous', 'Anonymous', 'no have', 'reddit username', 'Reddit Username', 'dont reddit']
-        bad_chars = [' ', 'u/', '/', '1.', '1)', '#1', ':']
+        skip_words = ['don\'t have', 'dont have', 'don\'t use', 'dont use', 'no reddit', 'anonymous', 'no have', 'dont reddit']
+        bad_chars = [' ', 'u/', '/', '1.', '1)', '#1', 'reddit username:']
         dash_first = ['-']
 
         if pending in member.roles:
@@ -26,7 +26,7 @@ class RedditCheck(commands.Cog):
                     before_period = first_line.partition('.')
                     first_line = before_period[0]
 
-                for i in bad_chars:
+                for i.lower() in bad_chars.lower():
                     first_line = first_line.replace(i, '')
 
                 for i in dash_first:
