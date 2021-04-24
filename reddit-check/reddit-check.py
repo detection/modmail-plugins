@@ -17,7 +17,7 @@ class RedditCheck(commands.Cog):
         dash_first = ['-']
 
         if pending in member.roles:
-            if any(i in first_line for i in skip_words) == False:
+            if any(i.lower() in first_line.lower() for i in skip_words) == False:
                 if "," in first_line[0:30]:
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
