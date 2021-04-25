@@ -25,6 +25,10 @@ class RedditCheck(commands.Cog):
                     before_period = first_line.partition('.')
                     first_line = before_period[0]
 
+                if " -" in first_line[3:30]:
+                    before_dash = first_line.partition(' -')
+                    first_line = before_dash[0]
+
                 for i in bad_chars:
                     first_line = first_line.replace(i, '')
 
