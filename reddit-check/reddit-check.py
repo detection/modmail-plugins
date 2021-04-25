@@ -16,7 +16,6 @@ class RedditCheck(commands.Cog):
 
         if pending in member.roles:
             if any(i.lower() in first_line.lower() for i in skip_words) == False:
-                print(first_line)
                 if "," in first_line[0:30]:
                     before_comma = first_line.partition(',')
                     first_line = before_comma[0]
