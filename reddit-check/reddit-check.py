@@ -39,7 +39,7 @@ class RedditCheck(commands.Cog):
 
                 if first_line.lower() in greeting: 
                     pass
-                if any(t.lower() in first_line.lower() for t in tag_hash): 
+                elif any(t.lower() in first_line.lower() for t in tag_hash): 
                     pass
                 elif len(first_line) <= 20:
                     await thread.channel.send('https://redditmetis.com/user/' + str(first_line))
