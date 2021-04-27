@@ -11,6 +11,7 @@ class WelcomeLater(commands.Cog):
     @commands.command(name="welcome", aliases=["w"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def welcome(self, ctx):
+        """Announce a new member in welcome channel."""
         member = ctx.guild.get_member(ctx.thread.recipient.id)
         channel = ctx.guild.get_channel(733193999942287441)
         
@@ -19,6 +20,7 @@ class WelcomeLater(commands.Cog):
     @commands.command(name="welcomePromotion", aliases=["wp"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def welcomePromotion(self, ctx):
+        """Announce an RMJ promotion in welcome channel."""
         member = ctx.guild.get_member(ctx.thread.recipient.id)
         channel = ctx.guild.get_channel(733193999942287441)
         
