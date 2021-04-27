@@ -14,6 +14,7 @@ class ChannelPerms(commands.Cog):
     @commands.command(name="channelhide", aliases=["chide"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def viewNo(self, ctx):
+        """Turn View Channel permissions OFF for Madridistras!"""
         guild = self.bot.get_guild(173554823633829888)
         await ctx.channel.set_permissions(ctx.guild.get_role(305440616354152450), read_messages=False)
         await ctx.message.delete()
@@ -21,6 +22,7 @@ class ChannelPerms(commands.Cog):
     @commands.command(name="channelshow", aliases=["cshow"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def viewYes(self, ctx):
+        """Turn View Channel permissions ON for Madridistras!"""
         guild = self.bot.get_guild(173554823633829888)
         await ctx.channel.set_permissions(ctx.guild.get_role(305440616354152450), read_messages=True)
         await ctx.message.delete()
@@ -28,6 +30,7 @@ class ChannelPerms(commands.Cog):
     @commands.command(name="channelnotype", aliases=["cnotype"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def typeNo(self, ctx):
+        """Turn Send Messages permissions OFF for Madridistras!"""
         guild = self.bot.get_guild(173554823633829888)
         await ctx.channel.set_permissions(ctx.guild.get_role(305440616354152450), send_messages=False)
         await ctx.message.delete()
@@ -35,6 +38,7 @@ class ChannelPerms(commands.Cog):
     @commands.command(name="channeltype", aliases=["ctype"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def typeYes(self, ctx):
+        """Turn Send Messages permissions ON for Madridistras!"""
         guild = self.bot.get_guild(173554823633829888)
         await ctx.channel.set_permissions(ctx.guild.get_role(305440616354152450), send_messages=True)
         await ctx.message.delete()
