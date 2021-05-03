@@ -41,9 +41,7 @@ class RedditCheck(commands.Cog):
                     pass
                 elif any(t.lower() in first_line.lower() for t in tag_hash): 
                     pass
-                elif len(first_line) < 3: 
-                    pass
-                elif len(first_line) <= 20:
+                elif 3 < len(first_line) <= 20:
                     await thread.channel.send('https://redditmetis.com/user/' + str(first_line))
                     await thread.channel.send('https://www.reddit.com/user/' + str(first_line))
 
