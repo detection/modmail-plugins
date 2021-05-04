@@ -11,7 +11,7 @@ class RedditCheck(commands.Cog):
         pending = self.bot.guild.get_role(324658636574162945)
         first_line = initial_message.content.splitlines()[0]
         skip_words = ["don't", "don’t", "don`t", "didn't", "didn’t", "didn`t", 'dont have', 'dont use', 'didnt have', 'didnt use', 'no reddit', 'anonymous', 'no have', 'dont reddit', 'didnt reddit', 'no tengo', 'not on', 'dont got']
-        bad_chars = ['u/', '/', '1.', '1)', '#1', 'What is your', 'reddit username', 'Reddit username', 'Reddit Username', ':', '(', '?', ' ']
+        bad_chars = ['u/', '/', '1.', '1)', '#1', 'what is your', 'my reddit username is', 'reddit username is', 'reddit username', ':', '(', '?', ' ']
         dash_first = ['-']
         tag_hash = ['#']
         greeting = ['hello', 'hi', 'hola']
@@ -31,6 +31,7 @@ class RedditCheck(commands.Cog):
                     first_line = before_dash[0]
 
                 for i in bad_chars:
+                    first_line = first_line.lower()
                     first_line = first_line.replace(i, '')
 
                 for i in dash_first:
