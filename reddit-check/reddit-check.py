@@ -14,7 +14,7 @@ class RedditCheck(commands.Cog):
         bad_chars = ['u/', '/', '1.', '1)', '#1', 'what is your', 'my reddit username is', 'reddit username is', 'reddit username', ':', '(', '?', ' ']
         dash_first = ['-']
         tag_hash = ['#']
-        greeting = ['hello', 'hi', 'hola']
+        greeting = ['hello', 'hi', 'hola', 'none']
 
         if pending in member.roles:
             if any(i.lower() in first_line.lower() for i in skip_words) == False:
