@@ -22,6 +22,8 @@ class RoleManage(commands.Cog):
         lav = guild.get_role(753417999796535356)
         violet = guild.get_role(753418170722680852)
         indigo = guild.get_role(753418176053903431)
+        juvC = guild.get_role(603767565130399784)
+        socios = guild.get_role(541375823395946522)
         if ns not in before.roles and ns in after.roles:
             await user.remove_roles(nego)
         elif red not in before.roles and red in after.roles:
@@ -46,6 +48,9 @@ class RoleManage(commands.Cog):
             await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, indigo)
         elif indigo not in before.roles and indigo in after.roles:
             await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, violet)
+        elif juvC not in before.roles and juvC in after.roles and socios not in after.roles:
+            print(f"{user.name} test dm message send")
+            await user.send("""**Congratulations!** You've reached Level 20 in the Real Madrid Discord server! Please accept this invitation to our exclusive *Casino Royale*, where we gamble our very own currency, the Flocoin.\n\nHead to <#800176964559306814> and tap the <:flocoin:541110660545773618> to enter. Good luck!""")
         else:
             return           
 def setup(bot):
