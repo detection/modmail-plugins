@@ -24,7 +24,10 @@ class RoleManage(commands.Cog):
         indigo = guild.get_role(753418176053903431)
         juvC = guild.get_role(603767565130399784)
         socios = guild.get_role(541375823395946522)
-        if juvC not in before.roles and juvC in after.roles:
+        if juvC not in before.roles and juvC in after.roles and socios not in after.roles:
+            await user.send("""**Congratulations!** You've reached Level 20 in the Real Madrid Discord server! Please accept this invitation to our exclusive *Casino Royale*, where we gamble our very own currency, the Flocoin.\n\nHead to <#800176964559306814> and tap the <:flocoin:541110660545773618> to enter. Good luck!""")
+            await user.remove_roles(training)
+        elif juvC not in before.roles and juvC in after.roles:
             await user.remove_roles(training)
         elif red not in before.roles and red in after.roles:
             await user.remove_roles(orange, yellow, green, lime, seafoam, aqua, blue, lav, violet, indigo)
@@ -48,8 +51,6 @@ class RoleManage(commands.Cog):
             await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, indigo)
         elif indigo not in before.roles and indigo in after.roles:
             await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, violet)
-        elif juvC not in before.roles and juvC in after.roles and socios not in after.roles:
-            await user.send("""**Congratulations!** You've reached Level 20 in the Real Madrid Discord server! Please accept this invitation to our exclusive *Casino Royale*, where we gamble our very own currency, the Flocoin.\n\nHead to <#800176964559306814> and tap the <:flocoin:541110660545773618> to enter. Good luck!""")
         else:
             return           
 def setup(bot):
