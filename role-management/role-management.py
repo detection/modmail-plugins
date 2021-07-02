@@ -12,7 +12,7 @@ class RoleManage(commands.Cog):
         training = guild.get_role(732405243299495968)
         ns = guild.get_role(603767376852287502)
         red = guild.get_role(753329075694600393)
-        orange = guild.get_role(753331480897388726)
+        pink = guild.get_role(859881708673564713)
         yellow = guild.get_role(753416121943720037)
         green = guild.get_role(753416717450870916)
         lime = guild.get_role(753417031243792484)
@@ -30,27 +30,27 @@ class RoleManage(commands.Cog):
         elif juvC not in before.roles and juvC in after.roles:
             await user.remove_roles(training)
         elif red not in before.roles and red in after.roles:
-            await user.remove_roles(orange, yellow, green, lime, seafoam, aqua, blue, lav, violet, indigo)
-        elif orange not in before.roles and orange in after.roles:
+            await user.remove_roles(pink, yellow, green, lime, seafoam, aqua, blue, lav, violet, indigo)
+        elif pink not in before.roles and pink in after.roles:
             await user.remove_roles(red, yellow, green, lime, seafoam, aqua, blue, lav, violet, indigo)
         elif yellow not in before.roles and yellow in after.roles:
-            await user.remove_roles(red, orange, green, lime, seafoam, aqua, blue, lav, violet, indigo)
+            await user.remove_roles(red, pink, green, lime, seafoam, aqua, blue, lav, violet, indigo)
         elif green not in before.roles and green in after.roles:
-            await user.remove_roles(red, orange, yellow, lime, seafoam, aqua, blue, lav, violet, indigo)
+            await user.remove_roles(red, pink, yellow, lime, seafoam, aqua, blue, lav, violet, indigo)
         elif lime not in before.roles and lime in after.roles:
-            await user.remove_roles(red, orange, yellow, green, seafoam, aqua, blue, lav, violet, indigo)
+            await user.remove_roles(red, pink, yellow, green, seafoam, aqua, blue, lav, violet, indigo)
         elif seafoam not in before.roles and seafoam in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, aqua, blue, lav, violet, indigo)
+            await user.remove_roles(red, pink, yellow, green, lime, aqua, blue, lav, violet, indigo)
         elif aqua not in before.roles and aqua in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, seafoam, blue, lav, violet, indigo)
+            await user.remove_roles(red, pink, yellow, green, lime, seafoam, blue, lav, violet, indigo)
         elif blue not in before.roles and blue in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, lav, violet, indigo)
+            await user.remove_roles(red, pink, yellow, green, lime, seafoam, aqua, lav, violet, indigo)
         elif lav not in before.roles and lav in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, violet, indigo)
+            await user.remove_roles(red, pink, yellow, green, lime, seafoam, aqua, blue, violet, indigo)
         elif violet not in before.roles and violet in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, indigo)
+            await user.remove_roles(red, pink, yellow, green, lime, seafoam, aqua, blue, lav, indigo)
         elif indigo not in before.roles and indigo in after.roles:
-            await user.remove_roles(red, orange, yellow, green, lime, seafoam, aqua, blue, lav, violet)
+            await user.remove_roles(red, pink, yellow, green, lime, seafoam, aqua, blue, lav, violet)
         else:
             return           
 def setup(bot):
