@@ -8,6 +8,9 @@ class ChannelPerms(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.group(invoke_without_command=False)
+    @commands.guild_only()
+    @checks.has_permissions(PermissionLevel.SUPPORTER)
         guild = self.bot.get_guild(173554823633829888)
         Madrid = guild.get_role(305440616354152450)
         Amb = guild.get_role(549298356502134787)
