@@ -8,9 +8,9 @@ class ChannelPerms(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    guild = self.bot.get_guild(173554823633829888)
-    Madrid = guild.get_role(305440616354152450)
-    Amb = guild.get_role(549298356502134787)
+        guild = self.bot.get_guild(173554823633829888)
+        Madrid = guild.get_role(305440616354152450)
+        Amb = guild.get_role(549298356502134787)
 
     @commands.command(name="channelhide", aliases=["chide"])
     @checks.has_permissions(PermissionLevel.SUPPORTER)
