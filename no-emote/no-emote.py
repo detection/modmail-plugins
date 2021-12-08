@@ -12,7 +12,7 @@ class NoEmotes(commands.Cog):
         member = guild.get_member(payload.user_id)
         vp = guild.get_role(812426821010194463)
         message = channel.get_partial_message(payload.message_id)
-        if channel.id == 305599363219062785 and vp in member.roles:
+        if channel.id == 907310047548309514 and vp in member.roles:
             await message.clear_reactions()
         else:
             pass
