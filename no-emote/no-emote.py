@@ -9,7 +9,7 @@ class NoEmotes(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         channel = self.bot.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
-        if channel == 305599363219062785:
+        if channel.id == 305599363219062785:
             await message.clear_reactions()
         else:
             pass
