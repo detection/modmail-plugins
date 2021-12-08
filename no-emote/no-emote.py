@@ -7,9 +7,9 @@ class NoEmotes(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
-        guild = self.bot.get_guild(173554823633829888)
+        guild = self.bot.get_guild(payload.guild_id)
         channel = self.bot.get_channel(payload.channel_id)
-        member = guild.get_member(payload.member_id)
+        member = guild.get_member(payload.member)
         vp = guild.get_role(812426821010194463)
         message = channel.get_partial_message(payload.message_id)
         if channel.id == 305599363219062785 and vp in member.roles:
