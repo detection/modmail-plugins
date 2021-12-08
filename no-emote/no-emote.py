@@ -8,10 +8,9 @@ class NoEmotes(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         channel = self.bot.get_channel(payload.channel_id)
-        user = self.bot.get_user(payload.user_id)
         message = await channel.fetch_message(payload.message_id)
         if channel == 305599363219062785:
-            await message.remove_reaction(emoji, user)
+            await message.clear_reactions()
         else:
             pass
 
