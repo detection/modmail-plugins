@@ -25,6 +25,13 @@ class RoleManage(commands.Cog):
         blanco = guild.get_role(859881464064376832)
         juvC = guild.get_role(603767565130399784)
         socios = guild.get_role(541375823395946522)
+        locked = guild.get_role(952752117083406336)
+        visitor = guild.get_role(324658636574162945)
+        fly = guild.get_role(585549047713103883)
+        if fly not in before.roles and fly in after.roles and visitor in after.roles:
+            await user.add_roles(locked)
+        if fly in before.roles and fly not in after.roles and visitor in after.roles and locked in after.roles:
+            await user.remove_roles(locked)
         if juvC not in before.roles and juvC in after.roles and socios not in after.roles:
             await user.send("""**Congratulations!** You've reached Level 20 in the Real Madrid Discord server! Please accept this invitation to our exclusive *Casino Royale*, where we gamble our very own currency, the Flocoin.\n\nHead to <#800176964559306814> and tap the <:flocoin:541110660545773618> to enter. Good luck!""")
             await user.remove_roles(training)
