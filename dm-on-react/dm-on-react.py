@@ -137,5 +137,5 @@ class DmOnReactPlugin(commands.Cog):
             return
 
 
-def setup(bot):
-    bot.add_cog(DmOnReactPlugin(bot))
+async def setup(bot):
+    await bot.add_cog(DmOnReactPlugin(bot))
