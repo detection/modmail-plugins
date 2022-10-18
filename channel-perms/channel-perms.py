@@ -48,5 +48,5 @@ class ChannelPerms(commands.Cog):
         await ctx.channel.set_permissions(ctx.guild.get_role(549298356502134787), send_messages=True)
         await ctx.message.delete()
 
-def setup(bot):
-    bot.add_cog(ChannelPerms(bot))
+async def setup(bot):
+    await bot.add_cog(ChannelPerms(bot))
