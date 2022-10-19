@@ -17,5 +17,5 @@ class CasinoInvite(commands.Cog):
         else:
             return
                
-def setup(bot):
-    bot.add_cog(CasinoInvite(bot))
+async def setup(bot):
+    await bot.add_cog(CasinoInvite(bot))
