@@ -26,5 +26,5 @@ class WelcomeLater(commands.Cog):
         
         await channel.send('Congratulations on your promotion, ' + str(member.mention) + '!')
                
-def setup(bot):
-    bot.add_cog(WelcomeLater(bot))
+async def setup(bot):
+    await bot.add_cog(WelcomeLater(bot))
