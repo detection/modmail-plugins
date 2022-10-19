@@ -10,5 +10,5 @@ class NewPing(commands.Cog):
             
         await thread.channel.send(str(thread.recipient.mention))
 
-def setup(bot):
-    bot.add_cog(NewPing(bot))
+async def setup(bot):
+    await bot.add_cog(NewPing(bot))
