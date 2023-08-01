@@ -19,7 +19,7 @@ class ReportReact(commands.Cog):
 
             # thread.reply("Thank you for your report, please reply with any additional information you think we need to proceed.", True) # Second argument makes the message anon
             # ctx.send(f"{user.mention} has reported an incident. Message link: {reaction.message.jump_url}")
-            await reaction.message.reply(str(ctx))
+            await reaction.message.reply(ctx.channel.mention)
             
         else:
             return
