@@ -16,7 +16,7 @@ class ReportReact(commands.Cog):
             ctx = await self.bot.get_context(genesis_msg)
 
             await ctx.send(f"{user.mention} has reported an incident. Message link: {reaction.message.jump_url}")
-            await thread.reply("Thank you for your report, please reply with any additional information you think we need to proceed.", True) # Second argument makes the message anon
+            await ctx.invoke(self.bot.get_command('areply'), msg="Thank you for your report, please reply with any additional information you think we need to proceed.")
             
         else:
             return
