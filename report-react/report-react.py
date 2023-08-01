@@ -9,6 +9,7 @@ class ReportReact(commands.Cog):
     async def on_reaction_add(self, reaction, user):
         if reaction.emoji == '🆘':
             thread = await self.bot.threads.find_or_create(user)
+            await asyncio.sleep(2)
             genesis_msg = await thread.get_genesis_message()
             ctx = await self.bot.get_context(genesis_msg)
     
