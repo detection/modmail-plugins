@@ -21,6 +21,8 @@ class ReportReact(commands.Cog):
             
         else:
             return
+            
+        await reaction.clear()
 
 async def setup(bot):
     await bot.add_cog(ReportReact(bot))
