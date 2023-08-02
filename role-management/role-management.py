@@ -40,5 +40,18 @@ class RoleManage(commands.Cog):
 
             return
 
+        training = guild.get_role(732405243299495968)
+        ns = guild.get_role(603767376852287502)
+        juvC = guild.get_role(603767565130399784)
+        socios = guild.get_role(541375823395946522)
+
+        if juvC not in before.roles and juvC in after.roles and socios not in after.roles:
+            await user.send("""**Congratulations!** You've reached Level 20 in the Real Madrid Discord Server! Please accept this invitation to our exclusive *Casino Royale*, where we gamble our very own currency, the Flocoin.\n\nHead to <#800176964559306814> and tap the <:flocoin:541110660545773618> to enter. Good luck!""")
+            await user.remove_roles(training)
+        elif juvC not in before.roles and juvC in after.roles:
+            await user.remove_roles(training)
+        else:
+            return
+
 async def setup(bot):
     await bot.add_cog(RoleManage(bot))
