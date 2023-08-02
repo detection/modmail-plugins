@@ -12,7 +12,7 @@ class ReportReact(commands.Cog):
         if reaction.emoji == '🆘':
             thread = await self.bot.threads.create(user, manual_trigger=True)
             # Delete the initial message that the Modmail bot sends
-            await thread.first_message.delete()
+            await thread.initial_message.delete()
             
             await asyncio.sleep(2)
             genesis_msg = await thread.get_genesis_message()
