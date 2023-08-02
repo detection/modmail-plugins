@@ -10,10 +10,7 @@ class ReportReact(commands.Cog):
     @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
         if reaction.emoji == '🆘':
-            thread = await self.bot.threads.create(user, manual_trigger=True)
-            # Delete the initial message that the Modmail bot sends
-            await thread.initial_message.delete()
-            
+            thread = await self.bot.threads.create(user, creator=self.bot.user)            
             await asyncio.sleep(2)
             genesis_msg = await thread.get_genesis_message()
             ctx = await self.bot.get_context(genesis_msg)
