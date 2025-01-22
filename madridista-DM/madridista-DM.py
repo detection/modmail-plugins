@@ -20,7 +20,9 @@ class MadridDM(commands.Cog):
 - Do you support any other clubs? If yes, whom and why?
 - What are your thoughts on Real Madrid Femenino?
 
-Please share your reddit username if you came from /r/realmadrid. Thank you! <:madridista:350639920504766476>""")
+**Additionally, please check your DMs for a message from <@703886990948565003> to verify your account.**
+
+And if you've come from /r/realmadrid, please share your reddit username. Thank you! <:madridista:350639920504766476>""")
         
         elif premadrid in after.roles and madrid in after.roles:
             await after.remove_roles(premadrid)
