@@ -14,4 +14,4 @@ class Verify(commands.Cog):
         return
         
 async def setup(bot):
-    await bot.add_cog(NewPing(bot))
+    await bot.add_cog(Verify(bot))
