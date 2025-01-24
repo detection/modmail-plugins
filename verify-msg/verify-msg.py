@@ -9,7 +9,7 @@ class Verify(commands.Cog):
     async def on_thread_ready(self, thread, creator, category, initial_message):
         guild = self.bot.get_guild(173554823633829888)
         unverified = guild.get_role(1271869103564394611)
-        if unverified in creator.roles:
+        if unverified in thread.recipient.roles:
             await thread.channel.send(str(";verify"))
         else:
             return
