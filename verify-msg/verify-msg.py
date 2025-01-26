@@ -11,7 +11,7 @@ class Verify(commands.Cog):
         member = await guild.fetch_member(thread.recipient.id)
         unverified = guild.get_role(1271869103564394611)
         if unverified in member.roles:
-            await thread.channel.send(str(";verify"))
+            await thread.reply("Hello! Please verify your account through the <@703886990948565003> prompt sent to your DMs.\nIf the link expired by the time you attempt verification, you can send yourself a new one by sending the `/verify` command in any channel within the server.")
         else:
             return
             
