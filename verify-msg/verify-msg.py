@@ -10,12 +10,12 @@ class Verify(commands.Cog):
         guild = self.bot.get_guild(173554823633829888)
         member = await guild.fetch_member(thread.recipient.id)
         unverified = guild.get_role(1271869103564394611)
-        ctx = await self.bot.get_context(initial_msg)
+        ctx = await self.bot.get_context(initial_message)
         thr = await self.bot.threads.find_or_create(member)
         ctx.thread = thr
         
         if unverified in member.roles:
-            await ctx.invoke(self.bot.get_command('verify'), user_or_role=ctx.guild.get_role(role_id))
+            await ctx.invoke(self.bot.get_command('verify'))
             # await thread.reply("Hello! Please verify your account through the <@703886990948565003> prompt sent to your DMs.\nIf the link expired by the time you attempt verification, you can send yourself a new one by sending the `/verify` command in any channel within the server.")
         else:
             return
