@@ -16,7 +16,7 @@ class Verify(commands.Cog):
         ctx.thread = thr
         
         if unverified in member.roles:
-            await ctx.invoke(self.bot.get_command('areply'), msg)
+            await ctx.invoke(self.bot.get_command('areply'), msg=msg)
             # await thread.reply("Hello! Please verify your account through the <@703886990948565003> prompt sent to your DMs.\nIf the link expired by the time you attempt verification, you can send yourself a new one by sending the `/verify` command in any channel within the server.")
         else:
             return
