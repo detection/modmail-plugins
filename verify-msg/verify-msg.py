@@ -17,7 +17,7 @@ class Verify(commands.Cog):
         
         if unverified in member.roles:
             # await ctx.invoke(self.bot.get_command('reply'), msg=msg)
-            await ctx.thread.reply(msg)
+            await ctx.reply(msg)
         else:
             return
             
