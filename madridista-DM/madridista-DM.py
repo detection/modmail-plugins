@@ -14,13 +14,13 @@ class MadridDM(commands.Cog):
         
         if premadrid not in before.roles and premadrid in after.roles and madrid not in after.roles:
             print(f"{member.name} test dm message send")
-            await member.send("""Hello, and welcome to the Real Madrid Discord Server! The majority of our server is Madridista-exclusive, if you could please answer the following questions to complete your joining process:
+            await member.send("""Hello! If you could please answer the following questions, we'll proceed with your verification process:
 
-- How long have you been supporting the club, and what's your favorite memory?
-- Do you support any other clubs? If yes, whom and why?
-- What are your thoughts on Real Madrid Femenino?
+- Who/what inspired you to be a Madridista?
+- What is your most and least favorite aspect of the club?
+- What are your thoughts on Real Madrid Femenino (Real Madrid Women's Team)?
 
-And if you've come from /r/realmadrid, please share your reddit username. Thank you! <:madridista:350639920504766476>""")
+Finally, do you support any other club? Thank you! <:madridista:350639920504766476>""")
         
         elif premadrid in after.roles and madrid in after.roles:
             await after.remove_roles(premadrid)
