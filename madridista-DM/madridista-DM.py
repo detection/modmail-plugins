@@ -20,7 +20,9 @@ class MadridDM(commands.Cog):
 - What is your most and least favorite aspect of the club?
 - What are your thoughts on Real Madrid Femenino (Real Madrid Women's Team)?
 
-Finally, do you support any other club? Thank you! <:madridista:350639920504766476>""")
+Finally, do you support any other club?
+
+Thank you! <:madridista:350639920504766476>""")
         
         elif premadrid in after.roles and madrid in after.roles:
             await after.remove_roles(premadrid)
