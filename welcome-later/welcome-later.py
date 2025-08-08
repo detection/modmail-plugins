@@ -21,7 +21,7 @@ class WelcomeLater(commands.Cog):
             f"Everyone give {member.mention} a warm Bernabéu welcome! 🏟️",
             f"{member.mention} just transferred in—contract signed, give 'em a welcome! 👋",
             f"Fresh boots on the pitch! Say hi to {member.mention}, our newest galáctico. 💫",
-            f"{member.mention} just got called up to the first team. Let's give 'em a champion's welcome! 🏆"
+            f"{member.mention} just got called up to the first team. Let's give 'em a champion's welcome! 🏆",
             f"{member.mention} just stepped into the Santiago Bernabéu—welcome to the home of legends! 👑"
         ]
 
