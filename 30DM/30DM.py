@@ -11,7 +11,7 @@ class ThirtyMinuteDM(commands.Cog):
         if member.guild.id != 173554823633829888:
             return
 
-        await asyncio.sleep(30)
+        await asyncio.sleep(1800)
 
         if member not in member.guild.members:
             return
