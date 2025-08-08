@@ -11,7 +11,7 @@ class ThirtyMinuteDM(commands.Cog):
         if member.guild.id != 173554823633829888:
             return
 
-        await asyncio.sleep(60)
+        await asyncio.sleep(30)
 
         if member not in member.guild.members:
             return
@@ -42,14 +42,14 @@ class VerificationButtons(discord.ui.View):
             "- What are your thoughts on Real Madrid Femenino (Real Madrid Women's Team)?\n\n"
             "Finally, do you support any other club?\n\n"
             "Thank you! <:madridista:350639920504766476>",
-            ephemeral=True
+            ephemeral=False
         )
 
     @discord.ui.button(label="Just visiting", style=discord.ButtonStyle.secondary, emoji="👋")
     async def visitor_button(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
             "Thanks for joining! Please feel free to explore the Visitors section, more access unlocks as you level up.",
-            ephemeral=True
+            ephemeral=False
         )
 
 async def setup(bot):
