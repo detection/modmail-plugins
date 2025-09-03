@@ -37,10 +37,11 @@ class VerificationButtons(discord.ui.View):
     async def madridista_button(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
             "Hello! If you could please answer the following questions, we'll proceed with your verification process:\n\n"
-            "- Who/what inspired you to be a Madridista?\n"
-            "- What is your most and least favorite aspect of the club?\n"
-            "- What are your thoughts on Real Madrid Femenino (Real Madrid Women's Team)?\n\n"
-            "Finally, do you support any other club?\n\n"
+            "Who/what inspired you to be a Madridista?\n\n"
+            "Do you support any other club? If yes, which ones?\n\n"
+            "What is your most favorite aspect of the club, and what would you change?\n\n"
+            "What are your thoughts on Real Madrid Femenino (Real Madrid Women's Team)?\n\n"
+
             "Thank you! <:madridista:350639920504766476>",
             ephemeral=False
         )
