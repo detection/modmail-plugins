@@ -18,7 +18,7 @@ class ThirtyMinuteDM(commands.Cog):
 
         visitor = member.guild.get_role(324658636574162945)
         premad = member.guild.get_role(1271869103564394611)
-        if visitor and not premad in member.roles:
+        if visitor in member.roles and premad not in member.roles:
             try:
                 view = VerificationButtons()
                 await member.send(
