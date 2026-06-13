@@ -34,7 +34,7 @@ class ReportReact(commands.Cog):
         )
 
         embed.add_field(
-            name="Message Author",
+            name="Message author",
             value=f"{reported_message.author.mention} (`{reported_message.author.id}`)",
             inline=False
         )
