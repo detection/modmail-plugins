@@ -37,7 +37,7 @@ class ReportReact(commands.Cog):
 
         embed = discord.Embed(
             title="Incident Report",
-            description=f"**Reported Message:**\n\n{quoted_message}",
+            description=f"**Reported message**\n{quoted_message}",
             color=discord.Color.red(),
             timestamp=reported_message.created_at
         )
@@ -57,12 +57,6 @@ class ReportReact(commands.Cog):
         embed.add_field(
             name="Jump link",
             value=f"[Go to message]({reported_message.jump_url})",
-            inline=False
-        )
-
-        embed.add_field(
-            name="Reported by",
-            value=f"{user.mention} (`{user.id}`)",
             inline=False
         )
 
@@ -87,6 +81,12 @@ class ReportReact(commands.Cog):
                 value=f"{len(reported_message.embeds)} embed(s) attached to original message.",
                 inline=False
             )
+
+        embed.add_field(
+            name="Reported by",
+            value=f"{user.mention} (`{user.id}`)",
+            inline=False
+        )
 
         await ctx.send(embed=embed)
 
