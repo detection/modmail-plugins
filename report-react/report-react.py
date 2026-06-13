@@ -23,9 +23,12 @@ class ReportReact(commands.Cog):
         genesis_msg = await thread.get_genesis_message()
         ctx = await self.bot.get_context(genesis_msg)
 
+        message_content = reported_message.content or "*No text content.*"
+        quoted_message = "\n".join([f"> {line}" for line in message_content.splitlines()])
+
         embed = discord.Embed(
             title="Incident Report",
-            description=reported_message.content or "*No text content.*",
+            description=f"**Reported Message:**\n\n{quoted_message}",
             color=discord.Color.red(),
             timestamp=reported_message.created_at
         )
