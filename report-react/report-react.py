@@ -60,6 +60,12 @@ class ReportReact(commands.Cog):
             inline=False
         )
 
+        embed.add_field(
+            name="Reported by",
+            value=f"{user.mention} (`{user.id}`)",
+            inline=False
+        )
+        
         if reported_message.attachments:
             attachment_links = []
 
@@ -83,12 +89,6 @@ class ReportReact(commands.Cog):
             )
 
         await ctx.send(embed=embed)
-
-        embed.add_field(
-            name="Reported by",
-            value=f"{user.mention} (`{user.id}`)",
-            inline=False
-        )
 
         ctx.thread = thread
         await ctx.invoke(
