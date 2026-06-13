@@ -31,12 +31,6 @@ class ReportReact(commands.Cog):
         )
 
         embed.add_field(
-            name="Reported by",
-            value=f"{user.mention} (`{user.id}`)",
-            inline=False
-        )
-
-        embed.add_field(
             name="Message author",
             value=f"{reported_message.author.mention} (`{reported_message.author.id}`)",
             inline=False
@@ -51,6 +45,12 @@ class ReportReact(commands.Cog):
         embed.add_field(
             name="Jump link",
             value=f"[Go to message]({reported_message.jump_url})",
+            inline=False
+        )
+
+        embed.add_field(
+            name="Reported by",
+            value=f"{user.mention} (`{user.id}`)",
             inline=False
         )
 
