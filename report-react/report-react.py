@@ -23,12 +23,12 @@ class ReportReact(commands.Cog):
         genesis_msg = await thread.get_genesis_message()
         ctx = await self.bot.get_context(genesis_msg)
 
-        message_content = reported_message.content or "*No text content.*"
+        message_content = reported_message.content or "*No text content. Message may contain attachment(s) only.*"
         quoted_message = "\n".join([f"> {line}" for line in message_content.splitlines()])
 
         embed = discord.Embed(
             title="Incident Report",
-            description=f"**Reported message**\n{quoted_message}",
+            description=f"**Reported Message:**\n\n{quoted_message}",
             color=discord.Color.red(),
             timestamp=reported_message.created_at
         )
@@ -58,12 +58,17 @@ class ReportReact(commands.Cog):
         )
 
         if reported_message.attachments:
-            attachment_links = "\n".join(
-                [attachment.url for attachment in reported_message.attachments]
-            )
+            attachment_links = []
+
+            for attachment in reported_message.attachments:
+                attachment_links.append(f"[{attachment.filename}]({attachment.url})")
+
+                if attachment.content_type and attachment.content_type.startswith("image/"):
+                    embed.set_image(url=attachment.url)
+
             embed.add_field(
                 name="Attachments",
-                value=attachment_links[:1024],
+                value="\n".join(attachment_links)[:1024],
                 inline=False
             )
 
