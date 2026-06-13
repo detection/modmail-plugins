@@ -82,13 +82,13 @@ class ReportReact(commands.Cog):
                 inline=False
             )
 
+        await ctx.send(embed=embed)
+
         embed.add_field(
             name="Reported by",
             value=f"{user.mention} (`{user.id}`)",
             inline=False
         )
-
-        await ctx.send(embed=embed)
 
         ctx.thread = thread
         await ctx.invoke(
