@@ -7,14 +7,23 @@ class ReportReact(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_reaction_add(self, reaction, user):
-        if user.bot:
+    async def on_raw_reaction_add(self, payload):
+        if str(payload.emoji) != '🆘':
             return
 
-        if reaction.emoji != '🆘':
+        guild = self.bot.get_guild(payload.guild_id)
+        if guild is None:
             return
 
-        reported_message = reaction.message
+        user = guild.get_member(payload.user_id)
+        if user is None or user.bot:
+            return
+
+        channel = guild.get_channel(payload.channel_id)
+        if channel is None:
+            channel = await self.bot.fetch_channel(payload.channel_id)
+
+        reported_message = await channel.fetch_message(payload.message_id)
 
         thread = await self.bot.threads.create(user, creator=self.bot.user)
 
@@ -88,7 +97,7 @@ class ReportReact(commands.Cog):
         )
 
         try:
-            await reaction.clear()
+            await reported_message.clear_reaction('🆘')
         except discord.Forbidden:
             pass
 
