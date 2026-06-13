@@ -28,13 +28,13 @@ class ReportReact(commands.Cog):
 
         embed = discord.Embed(
             title="Incident Report",
-            description=f"**Reported Message:**\n\n{quoted_message}",
+            description=f"**Reported message**\n{quoted_message}",
             color=discord.Color.red(),
             timestamp=reported_message.created_at
         )
 
         embed.add_field(
-            name="Message author",
+            name="Message Author",
             value=f"{reported_message.author.mention} (`{reported_message.author.id}`)",
             inline=False
         )
